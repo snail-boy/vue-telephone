@@ -1,6 +1,14 @@
 <template>
   <div>
-    <vue-telephone :mask="mask" @cancel="cancel" />
+    <vue-telephone
+            v-model="telephoneNumber"
+            :isMask="true"
+            :mask="mask"
+            opacity="0.05"
+            @cancel="cancel"
+            @handleScale="handleScale"
+    />
+    <mail-list :telephoneNumber="telephoneNumber" />
     <footer class="footer">
       <ul>
         <li @click="handleClick">首页</li>
@@ -12,22 +20,30 @@
 </template>
 
 <script>
-import VueTelephone from './vue-telephone';
+// import VueTelephone from './vue-telephone';
+import MailList from "./mailList";
 export default {
-  components: { VueTelephone },
+  components: {MailList },
   data () {
     return {
-      mask: false
+      mask: false,
+      telephoneNumber: ''
+    }
+  },
+  watch: {
+    telephoneNumber(v) {
+      console.log(v, 'v')
     }
   },
   methods: {
-    cancel (msg) {
-      console.log(msg)
-      this.mask = msg
+    cancel (flag) {
+      this.mask = flag
     },
-    handleClick (str) {
-      console.log(str)
+    handleClick () {
       this.mask = true
+    },
+    handleScale() {
+      alert('处理扫码')
     }
   }
 }
@@ -43,6 +59,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 20;
   ul {
     display: flex;
     justify-content: space-around;

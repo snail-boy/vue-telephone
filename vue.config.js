@@ -10,7 +10,7 @@ const name = defaultSettings.title // page title
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm runVUE_APP_BASE_API
-const port = 8081 // dev port
+const port = 8080 // dev port
 // const BaseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8081' : (process.env.NODE_ENV === 'staging' ? 'http://localhost:8081' : 'http://172.16.123.71:8081')
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
    */
   publicPath: process.env.NODE_ENV === 'production' ? '/dhealthfront/' : '/',
   // publicPath: './',
-  outputDir: 'dist',
+  outputDir: 'distq',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
@@ -51,7 +51,14 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
-      }
+      },
+      // '/api': {
+      //   target: `http://172.16.123.71:19906/dhealth-web/`,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     ['^' + '/api']: ''
+      //   }
+      // }
     }
     // after: require('./mock/mock-server.js')
   },

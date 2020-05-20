@@ -3,7 +3,6 @@ import request from '@/utils/request'
 export function verify() {
   return request({
     url: '/login/verify',
-    type: 'noLoading',
     method: 'post'
   })
 }
