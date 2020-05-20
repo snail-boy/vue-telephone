@@ -22,7 +22,7 @@ import VueTelephone from './plugin/vue-telephone'
 ```
     
 ### github.io
-[github.io](htttp://websmallrabbit.github.io)
+[github.io](http://websmallrabbit.github.io)
 
 [简书地址](https://www.jianshu.com/u/5c516e381a3a)
     
